@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public class EmailRequest {
 
-	@NotNull
+	@NotNull(message= "campovazio")
 	@Email
 	private String email;
 
