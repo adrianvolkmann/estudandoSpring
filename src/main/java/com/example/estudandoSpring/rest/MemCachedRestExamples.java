@@ -27,14 +27,21 @@ public class MemCachedRestExamples {
 	}
 
 	@GetMapping(value = "/readCache")
-	public String readCache(@RequestParam String key) {
+	public Integer readCache(@RequestParam String key) {
 
-		String value = (String) memcached.get(key);
-		if (value == null) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "key not found");
-		} else {
-			return value;
-		}
+		 String readed = (String) memcached.get(key);
+
+		 
+		 if(readed!=null) {
+			 return  Integer.valueOf(readed) ;
+		 }
+		 
+		return null;
+		//if (value == null) {
+			//throw new ResponseStatusException(HttpStatus.NOT_FOUND, "key not found");
+		//} else {
+			//return value;
+		//}
 	}
 
 }
